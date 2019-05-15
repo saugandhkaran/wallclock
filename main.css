@@ -1,0 +1,88 @@
+html, body {
+    margin: 0 auto;
+}
+
+:root {
+    --startTimeSecond : 0deg;
+    --endTimeSecond: 360deg;
+    --startTimeHour: 0deg;
+    --endTimeHour: 360deg;
+    --startTimeMinute: 0deg;
+    --endTimeMinute: 360deg;
+}
+
+.clock {    
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.clock-frame {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 400px;
+    background: url('ios_clock.svg') no-repeat center;
+}
+
+.line-second {
+    margin-left: 150px;
+    width: 200px;
+    height: 2px;
+    background-color: black;
+    transform-origin: center left;
+    transform-style: preserve-3D;
+    animation: line-tick-second 60s infinite steps(60);
+}
+
+.line-hour {
+    width: 100px;
+    height: 6px;
+    margin-left: -200px;
+    background-color: red;
+    transform-origin: center left;
+    transform-style: preserve-3D;
+    animation: line-tick-hour 43200s infinite steps(60);
+}
+
+.line-minute {
+    width: 150px;
+    height: 4px;
+    margin-left: -100px;
+    background-color: black;
+    transform-origin: center left;
+    transform-style: preserve-3D;
+    animation: line-tick-minute 3600s infinite steps(60);
+}
+
+@keyframes line-tick-second {
+    from {
+        transform: rotate(var(--startTimeSecond));
+    }
+    to {
+        transform: rotate(var(--endTimeSecond));
+    }
+    
+    
+}
+
+@keyframes line-tick-hour {
+    from {
+        transform: rotate(var(--startTimeHour));
+    }
+    to {
+        transform: rotate(var(--endTimeHour));
+    }
+    
+}
+
+@keyframes line-tick-minute {
+    from {
+        transform: rotate(var(--startTimeMinute));
+    }
+    to {
+        transform: rotate(var(--endTimeMinute));
+    }
+    
+}
